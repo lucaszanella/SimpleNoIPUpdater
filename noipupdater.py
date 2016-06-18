@@ -7,7 +7,7 @@ from base64 import b64encode
 #User customizable part *********
 interval = 5 #in seconds
 noIpDomain = 'mydomain.no-ip.org'
-user = 'myusername@email.com
+user = 'myusername@email.com'
 password = 'myPassword'
 n = 3 # number of update tries
 printSuccess = False #makes it print the success message in every try
