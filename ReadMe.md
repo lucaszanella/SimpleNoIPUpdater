@@ -6,5 +6,16 @@ machine's current IP (the IP of the modem if you're behind a gateay).
 
 It'll use HTTPS :)
 
+#'Installation'
 
+Just run
+
+```
+crontab -e
+```
+and write this line to run every minute:
+
+```
+* * * * * python3 /home/user/SimpleNoIPUpdater/noipupdater.py
+```
 Lucas Zanella - 2015
