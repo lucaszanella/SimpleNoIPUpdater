@@ -19,17 +19,17 @@ UserAndPasswordInBytes = (user+":"+password).encode("ascii")#convert to bytes
 userAndPassEncoded = b64encode(UserAndPasswordInBytes).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPassEncoded }
 
-while True:
-    for x in range(0,n):
-        try:
-            c = HTTPSConnection("dynupdate.no-ip.com")
-            c.request('GET', '/nic/update?hostname='+noIpDomain, headers=headers)
-            res = c.getresponse()
-            data = res.read()
-            if "nochg" in data.decode("utf-8"):
-                if printSuccess:
-                    print(data)
-                break;  
-        except:
-            print('error')
-        time.sleep(interval)
+for x in range(0,n):
+    try:
+        c = HTTPSConnection("dynupdate.no-ip.com")
+        c.request('GET', '/nic/update?hostname='+noIpDomain, headers=headers)
+        res = c.getresponse()
+        data = res.read()
+        if "nochg" in data.decode("utf-8"):
+            if printSuccess:
+                print(data)
+            break;
+    except:
+        print('error')
+    time.sleep(interval)
+
